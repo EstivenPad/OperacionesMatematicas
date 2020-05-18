@@ -1,0 +1,43 @@
+﻿@page "/operacionesmatematicas"
+
+<h1>Operaciones matematicas</h1><br>
+
+<p>Primer numero: <input type="number" @bind="PrimerNumero"/></p>
+<p>Segundo numero: <input type="number" @bind="SegundoNumero"/></p>
+
+<button @onclick="sumar">Calcular</button><br><br>
+
+<p>La suma es: @Suma</p>
+<p>La resta es: @Resta</p>
+<p>La multiplicacion es: @Multiplicacion</p>
+
+@code {
+
+    [Parameter]
+    public int PrimerNumero { get; set; }
+    [Parameter]
+    public int SegundoNumero { get; set; }
+
+    private int Suma { get; set; }
+    private int Resta { get; set; }
+    private int Multiplicacion { get; set; }
+
+    private void sumar()
+    {
+        Suma = PrimerNumero + SegundoNumero;
+
+        restar();
+    }
+
+    private void restar()
+    {
+        Resta = PrimerNumero - SegundoNumero;
+
+        multiplicar();
+    }
+
+    private void multiplicar()
+    {
+        Multiplicacion = PrimerNumero * SegundoNumero;
+    }
+}
